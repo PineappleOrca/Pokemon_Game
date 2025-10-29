@@ -1,5 +1,6 @@
 # This is a script where I will attempt to learn object oriented programming by creating a pokemon game
 from enum import Enum
+from battles import compute_damage
 
 class Stats(Enum):
     Attack = 0
@@ -15,11 +16,12 @@ class Type(Enum):
 
 class Pokemon:
     # init is used to set values for each square
-    def __init__(self,name="", type=Type.NORMAL, stats=[], moveset=[]):
+    def __init__(self,name="", type=Type.NORMAL, stats=[], moveset=[], level=5):
         self.name = name
         self.type = type
         self.stats = stats 
         self.moveset = moveset 
+        self.level = level
     # This is the getter
     # self is used to refer to an object that we dont possess a name for
     def get_name(self):
@@ -55,16 +57,42 @@ class Pokemon:
         return self.moveset
 
     def fight(self, opponent):
-        user_input = input("Choose " + self.name + "  move")
-        print(self.name + " used ", user_input)
+        print(f"What move will {self.name} choose?")
+        self.display_moveset()
+        # need to add code to ensure the user enters a number between 1 and 4
+        user_input = int(input())
+        self.display_move_used(user_input)
         # battle calculations
         # RAW attack value v1.0
+        # damage formula 
+        # Base Damage = (((2L)/5)+2)*(P*A)/(50*D)) + 2 
+        # Final Damage = Base Damage x modifier
+        # modifier = targets*weather*critical*random*stab*type*burn*others
+        compute_damage(self, opponent)
         damage = self.stats[Stats.Attack.value]
         opponent.stats[Stats.Health.value] -= damage 
 
     def __str__(self) -> str:
         return "Your Pokemon is: " + self.name + " and it is a " + self.type.name +" type!" 
+    
+    def display_moveset(self):
+        print("\n========================================\n")
+        print(f"1. {self.moveset[0]}    2. {self.moveset[1]}\n")
+        print(f"3. {self.moveset[2]}    4. {self.moveset[3]}\n")
+        print("\n========================================\n")
 
+    def display_move_used(self, user_input):
+        print("\n========================================\n")
+        match user_input:
+            case 1:
+                print(f"{self.name} used {self.moveset[0]}!")
+            case 2:
+                print(f"{self.name} used {self.moveset[1]}!")
+            case 3:
+                print(f"{self.name} used {self.moveset[2]}!")
+            case 4:
+                print(f"{self.name} used {self.moveset[3]}!")
+        print("\n========================================\n")
 
 
 
