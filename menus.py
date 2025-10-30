@@ -19,14 +19,3 @@ def display_move_used(pokemon,user_input):
             print(f"{pokemon.name} used {pokemon.moveset[3]}!")
     print("\n========================================\n")
 
-def main_menu():
-    list_of_starter_pokemon = [1,2,3,4]
-    print("\n========================================\n")
-    print(" \n WELCOME TO THE TEXT BASED POKEMON GAME BATTLE SIMULATOR \n")
-    print(" Choose Your Starter Pokemon !")
-    print(" \n 1. Charmander  2. Squirtle \n")
-    print(" \n 3. Bulbasaur 4. Pikachu \n")
-    user_input = int(input())
-    list_of_starter_pokemon.remove(user_input)
-    opponent = random.choice(list_of_starter_pokemon)
-    print("\n========================================\n")

@@ -1,6 +1,6 @@
 from classes import Pokemon, Type
 import battles
-from menus import main_menu
+from main_menu import main_menu
 
 
 #bulbasaur = Pokemon("Bulbasaur", Type.GRASS, [8,15,25,50], ["Tackle", "Leer", "Razor Leaf", "Absorb"])
