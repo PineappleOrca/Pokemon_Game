@@ -7,7 +7,8 @@ class Type(Enum):
     GRASS = 1
     WATER = 2
     FIRE = 3
-
+    ELECTRIC = 4
+    
 class Moves:
     def __init__(self, power=0, pp=0, type=Type.NORMAL, accuracy=0):
         self.power = power
