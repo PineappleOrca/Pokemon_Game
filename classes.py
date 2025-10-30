@@ -29,13 +29,9 @@ class Status(Enum):
     Normal = 0
     Burned = 1
 
-class DOA(Enum):
-    Fainted = 0
-    Alive = 1
-
 class Pokemon:
     # init is used to set values for each square
-    def __init__(self,name="", type=Type.NORMAL, stats=[], moveset=[], level=5, doa_status=DOA.Alive, status=Status.Normal):
+    def __init__(self,name="", type=Type.NORMAL, stats=[], moveset=[], level=5, doa_status=True, status=Status.Normal):
         self.name = name
         self.type = type
         self.stats = stats 
