@@ -2,26 +2,47 @@
 from enum import Enum
 from battles import compute_damage
 
-class Stats(Enum):
-    Attack = 0
-    Defence = 1
-    Speed = 2
-    Health = 3
-
 class Type(Enum):
     NORMAL = 0
     GRASS = 1
     WATER = 2
     FIRE = 3
 
+class Moves:
+    def __init__(self, power=0, pp=0, type=Type.NORMAL, accuracy=0):
+        self.power = power
+        self.pp = pp
+        self.type = type
+        self.accuracy = accuracy
+
+class Stats(Enum):
+    Attack = 0
+    Defence = 1
+    Speed = 2
+    Health = 3
+
+class Status(Enum):
+    '''
+    P
+    '''
+    Normal = 0
+    Burned = 1
+
+class DOA(Enum):
+    Fainted = 0
+    Alive = 1
+
 class Pokemon:
     # init is used to set values for each square
-    def __init__(self,name="", type=Type.NORMAL, stats=[], moveset=[], level=5):
+    def __init__(self,name="", type=Type.NORMAL, stats=[], moveset=[], level=5, doa_status=DOA.Alive, status=Status.Normal):
         self.name = name
         self.type = type
         self.stats = stats 
         self.moveset = moveset 
         self.level = level
+        self.doa_status = doa_status    # status of pokemon fainted or alive
+        self.status = status            # pokemon status normal/paralyzed/frozen/confused etc
+
     # This is the getter
     # self is used to refer to an object that we dont possess a name for
     def get_name(self):
