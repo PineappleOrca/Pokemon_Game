@@ -23,7 +23,7 @@ class Stats(Enum):
 
 class Status(Enum):
     '''
-    P
+    Pokemon battle status effects normal,burned,paralyzed,asleep etc
     '''
     Normal = 0
     Burned = 1
