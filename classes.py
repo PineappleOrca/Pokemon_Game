@@ -1,6 +1,5 @@
 # This is a script where I will attempt to learn object oriented programming by creating a pokemon game
 from enum import Enum
-from battles import compute_damage
 
 class Type(Enum):
     NORMAL = 0
@@ -89,7 +88,6 @@ class Pokemon:
         # Base Damage = (((2L)/5)+2)*(P*A)/(50*D)) + 2 
         # Final Damage = Base Damage x modifier
         # modifier = targets*weather*critical*random*stab*type*burn*others
-        compute_damage(self, opponent)
         damage = self.stats[Stats.Attack.value]
         opponent.stats[Stats.Health.value] -= damage 
 

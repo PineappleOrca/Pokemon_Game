@@ -1,3 +1,5 @@
+from classes import Stats
+
 def pokemon_battle(pokemon1, pokemon2):
     # who go first
     while(pokemon1.stats[3] > 0 and pokemon2.stats[3] > 0):
@@ -12,8 +14,8 @@ def pokemon_battle(pokemon1, pokemon2):
             pokemon1.fight(pokemon2)   
             check_status(pokemon2)
 
-        print(pokemon1.name + " has " + str(pokemon1.stats[3]) + " hp left!")
-        print(pokemon2.name + " has " + str(pokemon2.stats[3]) + " hp left!")
+        print(pokemon1.name + " has " + str(pokemon1.stats[Stats.Health.value]) + " hp left!")
+        print(pokemon2.name + " has " + str(pokemon2.stats[Stats.Health.value]) + " hp left!")
         print("\nThe battle rages on.....\n")
 
 def compute_damage(offensive, target):
