@@ -1,5 +1,3 @@
-import random 
-
 def display_moveset(pokemon):
         print("\n========================================\n")
         print(f"1. {pokemon.moveset[0]}    2. {pokemon.moveset[1]}\n")

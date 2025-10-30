@@ -1,5 +1,5 @@
-from classes import Pokemon, Type
-import battles
+#from classes import Pokemon, Type
+#import battles
 from main_menu import main_menu
 
 

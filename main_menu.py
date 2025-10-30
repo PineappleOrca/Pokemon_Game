@@ -1,4 +1,5 @@
 from classes import Pokemon, Type
+import battles
 import random
 
 def main_menu():
@@ -16,6 +17,9 @@ def main_menu():
     opponent_pokemon_1 = initialise_starter(opponent)
     show_selections(user_pokemon_1, opponent_pokemon_1)
     print("\n========================================\n")
+    print("\n========================================\n")
+    print("============== FIGHT START ===============\n")
+    battles.pokemon_battle(user_pokemon_1,opponent_pokemon_1)
 
 def show_selections(user_pokemon, opp_pokemon):
     print(f"You have chosen {user_pokemon.name}!")
