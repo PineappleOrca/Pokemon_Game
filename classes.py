@@ -1,6 +1,7 @@
 # This is a script where I will attempt to learn object oriented programming by creating a pokemon game
 from enum import Enum
 from menus import display_move_used, display_moveset
+import json
 
 class Type(Enum):
     NORMAL = 0
@@ -8,9 +9,11 @@ class Type(Enum):
     WATER = 2
     FIRE = 3
     ELECTRIC = 4
+    STEEL = 5
     
 class Moves:
-    def __init__(self, power=0, pp=0, type=Type.NORMAL, accuracy=0):
+    def __init__(self, name="", power=0, pp=0, type=Type.NORMAL, accuracy=0):
+        self.name = name
         self.power = power
         self.pp = pp
         self.type = type
@@ -32,10 +35,11 @@ class Status(Enum):
 class Pokemon:
     # init is used to set values for each square
     def __init__(self,name="", type=Type.NORMAL, stats=[], moveset=[], level=5, doa_status=True, status=Status.Normal):
+        # Initialising the variables
         self.name = name
         self.type = type
         self.stats = stats 
-        self.moveset = moveset 
+        self.moveset = moveset
         self.level = level
         self.doa_status = doa_status    # status of pokemon fainted or alive
         self.status = status            # pokemon status normal/paralyzed/frozen/confused etc
@@ -79,19 +83,21 @@ class Pokemon:
         display_moveset(self)
         # need to add code to ensure the user enters a number between 1 and 4
         user_input = int(input())
-        display_move_used(self, user_input)
-        # battle calculations
-        # RAW attack value v1.0
-        # damage formula 
-        # Base Damage = (((2L)/5)+2)*(P*A)/(50*D)) + 2 
-        # Final Damage = Base Damage x modifier
-        # modifier = targets*weather*critical*random*stab*type*burn*others
-        damage = self.stats[Stats.Attack.value]
-        opponent.stats[Stats.Health.value] -= damage 
+        self.use_move(user_input, opponent)
+    
+    def use_move(self, index, opponent):
+        move = self.moveset[index]
+        print(f"{self.name} used {self.moveset[index].name}!")
+        damage = move.power  
+        opponent.stats[Stats.Health.value] -= damage
+        print(f"It dealt {damage} damage to {opponent.name}!")
 
     def __str__(self) -> str:
         return "Your Pokemon is: " + self.name + " and it is a " + self.type.name +" type!" 
+    
+    
 
 
 
 
+ 
