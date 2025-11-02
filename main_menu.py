@@ -27,6 +27,8 @@ def show_selections(user_pokemon, opp_pokemon):
     print(f"Your Opponent is {opp_pokemon.name}!")
 
 def initialise_starter(my_var):
+    # commented out the old init calls since i made a generic function 
+    # with an inpt to handle the starter init
     match my_var:
         case 1:
             return pokemon_init("Charmander")
