@@ -1,0 +1,7 @@
+[
+    {"name": "Charmander", "type": "FIRE", "stats": [10,10,30,40], "moveset": [], "level": 5, "doa_status": true, "status": "Normal"},
+    {"name": "Bulbasaur", "type": "GRASS", "stats": [8,15,25,50], "moveset": [], "level": 5, "doa_status": true, "status": "Normal"},
+    {"name": "Squirtle", "type": "WATER", "stats": [12,20,20,30], "moveset": [], "level": 5, "doa_status": true, "status": "Normal"},
+    {"name": "Pikachu", "type": "ELECTRIC", "stats": [15,8,50,60], "moveset": [], "level": 5, "doa_status": true, "status": "Normals"}
+]
+
