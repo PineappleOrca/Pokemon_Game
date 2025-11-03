@@ -6,7 +6,7 @@
     {"name": "Tackle", "power": 35, "type": "NORMAL", "accuracy": 1.0, "pp": 35},
     {"name": "Leer", "power": 0, "type": "NORMAL", "accuracy": 1.0, "pp": 35},
     {"name": "Razor Leaf", "power": 55, "type": "WATER", "accuracy": 1.0, "pp": 30},
-    {"name": "Absord", "power": 20, "type": "GRASS", "accuracy": 1.0, "pp": 35},
+    {"name": "Absorb", "power": 20, "type": "GRASS", "accuracy": 1.0, "pp": 35},
     {"name": "Pound", "power": 35, "type": "NORMAL", "accuracy": 1.0, "pp": 35},
     {"name": "Tail Whip", "power": 0, "type": "NORMAL", "accuracy": 1.0, "pp": 35},
     {"name": "Water Gun", "power": 40, "type": "WATER", "accuracy": 1.0, "pp": 30},
