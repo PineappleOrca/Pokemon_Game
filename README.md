@@ -9,17 +9,20 @@ The aim of this initially is to set up a simple game of Pokemon where I can have
 - A Pokemon battle to feature similar setup to that of the main games
 - The Pokemon will then gain experience points and level accordingly
 - Levelling will have its appropriate effect on the pokemon's stats. 
-- Create some AI trainers with sample pokemon and levels to have mock fights with
+- Create some AI trainers with sample pokemon and levels to have mock fights with 
 
 -> Current Status (WIP)
 - Pokemon battles work as expected (minus correct damage calcs), moves and pokemon loaded from JSON files , opponent is assigned one random
 pokemon after the user selects theirs from an initial set of 4
+- Updated with formula damage calcs, STAB and type effectiveness added (if a bit clunky)
+- added more menus and displays for clearer UX 
+- added in "AI" trainer (random moves from computer)
 
 -> Things to add 
-- Correct battle damage calcs (apply formula), type effectiveness etc, factor in accuracy
+- Correct battle damage calcs (apply formula (DONE)), type effectiveness (DONE) etc, factor in accuracy 
 - pp tracking for moves
-- improve display between turns to show pp and move types so the user can decide 
-- add automated bot moves so it feels like the user is playing vs a bot 
+- improve display between turns to show pp and move types so the user can decide  (DONE not pp)
+- add automated bot moves so it feels like the user is playing vs a bot  (DONE)
 - pokemon status moves + affect on stats
 - maybe add support for player vs bot and player vs player, so player vs bot mode, the bot randomly picks a move, player vs player, two users subsequently use keystrokes for moves? 
 - import pokeapi to populate database with moves and pokemon stats for improved accuracy, sqlite database for scalability
