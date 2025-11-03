@@ -87,8 +87,15 @@ class Pokemon:
     
     def get_damage(self, move, opponent):
         base_damage = ((2.0*self.level/5)+2)*((move.power*self.stats[Stats.Attack.value])/(50*opponent.stats[Stats.Defence.value])) + 2
-        damage = int(base_damage)
+        stab = self.get_stab_factor(move)
+        damage = int(base_damage*stab)
         return damage
+    
+    def get_stab_factor(self, move):
+        if(self.type == move.type):
+            return 1.5
+        else:
+            return 1.0
     
     def use_move(self, index, opponent):
         move = self.moveset[index]
