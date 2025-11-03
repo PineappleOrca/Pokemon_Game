@@ -11,6 +11,7 @@ def main_menu():
     print(" Choose Your Starter Pokemon !")
     print(" \n 1. Charmander  2. Squirtle \n")
     print(" \n 3. Bulbasaur 4. Pikachu \n")
+    print("\n========================================\n")
     user_input = int(input())
     list_of_starter_pokemon.remove(user_input)
     opponent = random.choice(list_of_starter_pokemon)

@@ -89,6 +89,12 @@ class Pokemon:
         base_damage = ((2.0*self.level/5)+2)*((move.power*self.stats[Stats.Attack.value])/(50*opponent.stats[Stats.Defence.value])) + 2
         stab = self.get_stab_factor(move)
         type_effectiveness = self.get_type_effectiveness(move, opponent)
+        if(type_effectiveness > 1.0):
+            print("Its super effective!!!")
+        elif(type_effectiveness < 1.0):
+            print("Its not very effective......")
+        else:
+            print("BOOM what a move!")
         damage = int(base_damage*stab*type_effectiveness)
         return damage
     
