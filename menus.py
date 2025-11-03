@@ -8,12 +8,12 @@ def display_move_used(pokemon,user_input):
     print("\n========================================\n")
     match user_input:
         case 1:
-            print(f"{pokemon.name} used {pokemon.moveset[0]}!")
+            print(f"{pokemon.name} used {pokemon.moveset[0].name}!")
         case 2:
-            print(f"{pokemon.name} used {pokemon.moveset[1]}!")
+            print(f"{pokemon.name} used {pokemon.moveset[1].name}!")
         case 3:
-            print(f"{pokemon.name} used {pokemon.moveset[2]}!")
+            print(f"{pokemon.name} used {pokemon.moveset[2].name}!")
         case 4:
-            print(f"{pokemon.name} used {pokemon.moveset[3]}!")
+            print(f"{pokemon.name} used {pokemon.moveset[3].name}!")
     print("\n========================================\n")
 
