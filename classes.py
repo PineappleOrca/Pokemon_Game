@@ -88,7 +88,8 @@ class Pokemon:
     def get_damage(self, move, opponent):
         base_damage = ((2.0*self.level/5)+2)*((move.power*self.stats[Stats.Attack.value])/(50*opponent.stats[Stats.Defence.value])) + 2
         stab = self.get_stab_factor(move)
-        damage = int(base_damage*stab)
+        type_effectiveness = self.get_type_effectiveness(move, opponent)
+        damage = int(base_damage*stab*type_effectiveness)
         return damage
     
     def get_stab_factor(self, move):
@@ -97,6 +98,22 @@ class Pokemon:
         else:
             return 1.0
     
+    def load_json(self,path):
+        with open(path, "r") as f:
+            return json.load(f)
+    
+    def get_type_effectiveness(self, move, opponent):
+        type_matrix = [
+                #NOR, GRASS, WATER, FIRE, ELECTRIC, STEEL
+                [1,    1,     1,     1,   1,        0.5],  # NORMAL
+                [1,    0.5,   0.5,   2,   1,        0.5],  # GRASS
+                [1,    2,     0.5,   0.5, 1,        1],    # WATER
+                [1,    0.5,   2,     0.5, 1,        2],    # FIRE
+                [1,    0.5,   2,     1,   0.5,      1],    # ELECTRIC
+                [1,    1,     1,     0.5, 1,        0.5]   # STEEL
+            ]
+        return type_matrix[opponent.type.value][move.type.value]
+
     def use_move(self, index, opponent):
         move = self.moveset[index]
         print(f"{self.name} used {self.moveset[index].name}!")
