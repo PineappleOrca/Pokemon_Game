@@ -1,8 +1,10 @@
-from classes import Stats
+from classes import Stats, Type
 
 def pokemon_battle(pokemon1, pokemon2):
     # who go first
+    display_fight_start(pokemon1, pokemon2)
     while(pokemon1.doa_status and pokemon2.doa_status):
+        display_battle_state(pokemon1, pokemon2)
         if pokemon1.stats[Stats.Speed.value] > pokemon2.stats[Stats.Speed.value]:
             pokemon1.fight(pokemon2)
             check_status(pokemon2,pokemon1)
@@ -42,4 +44,27 @@ def check_status(pokemon, opponent):
 def declare_winner(pokemon1,pokemon2):
     return 0
 
+def display_battle_state(pokemon1, pokemon2):
+    print("\n========================================\n")
+    print(f"{pokemon1.name} has {pokemon1.stats[Stats.Health.value]} left!\n")
+    print(f"{pokemon2.name} has {pokemon2.stats[Stats.Health.value]} left!\n")
+    print("\n========================================\n")
+
+def display_fight_start(pokemon1, pokemon2):
+    print("\n========================================\n")
+    print(f"{pokemon2.name} has challenged you to a battle!")
+    print(f"Type: {pokemon2.type.name}")
+    print(f"Health: {pokemon2.stats[Stats.Health.value]}")
+    print(f"Atack: {pokemon2.stats[Stats.Attack.value]}")
+    print(f"Defence: {pokemon2.stats[Stats.Defence.value]}")
+    print(f"Speed: {pokemon2.stats[Stats.Speed.value]}")
+    print("\n")
+    print("VS\n")
+    print("\n")
+    print(f"{pokemon1.name} will fight for you!")
+    print(f"Type: {pokemon1.type.name}")
+    print(f"Health: {pokemon1.stats[Stats.Health.value]}")
+    print(f"Atack: {pokemon1.stats[Stats.Attack.value]}")
+    print(f"Defence: {pokemon1.stats[Stats.Defence.value]}")
+    print(f"Speed: {pokemon1.stats[Stats.Speed.value]}")   
 
