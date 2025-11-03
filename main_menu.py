@@ -60,11 +60,17 @@ def load_moves_from_json():
             )
         return moves
 
-def load_starter_pokemon_from_json():
+def load_starter_pokemon_from_json(name):
     # is this bad because loading and creating Pokemon objects for everything in database
     # not only creating objects for what you need? 
     data = load_json("pokemon.json")
+    # extracting the list of moves from the pokemon json for a given pokemon
+    moveset = [m['moveset'] for m in data if m['name'] == name]
+    moveset = moveset[0]
     move_db = load_moves_from_json()
+    pokemon_moves = []
+    for move in moveset:
+        pokemon_moves.append(move_db[move])
     pokemon = {}
     for m in data:
         pokemon[m["name"]] = Pokemon(
@@ -72,7 +78,7 @@ def load_starter_pokemon_from_json():
             type=Type[m["type"]],
             stats=m["stats"],
             #need to update the json to have the move names for the pokemon
-            moveset=[move_db["Scratch"], move_db["Growl"], move_db["Ember"], move_db["Metal Claw"]]
+            moveset=pokemon_moves
         )
     return pokemon
 
@@ -95,5 +101,7 @@ def pikachu_init():
 
 # manually hardcoding the init of the moveset, eventually for scale and adding support for other pokemon have to make a database of some sort from an API
 def pokemon_init(name):
-    pokemon_db = load_starter_pokemon_from_json()
+    pokemon_db = load_starter_pokemon_from_json(name)
+    # From the Name, extract the moveset -> initialise the moveset from the moves_json -> export that, -> initialise the pokemon with the moves
+    # probably should be done in this function
     return pokemon_db[name]
