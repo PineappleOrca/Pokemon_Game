@@ -10,12 +10,14 @@ def pokemon_battle(pokemon1, pokemon2):
             check_status(pokemon2,pokemon1)
             if not pokemon2.doa_status:
                 break
-            pokemon2.fight(pokemon1) 
+            #pokemon2.fight(pokemon1) 
+            pokemon2.ai_fight(pokemon1)
             check_status(pokemon1,pokemon2)
             if not pokemon1.doa_status:
                 break
         else:
-            pokemon2.fight(pokemon1)
+            #pokemon2.fight(pokemon1)
+            pokemon2.ai_fight(pokemon1)
             check_status(pokemon1,pokemon2)
             if not pokemon1.doa_status:
                 break

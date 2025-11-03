@@ -2,6 +2,7 @@
 from enum import Enum
 from menus import display_move_used, display_moveset
 import json
+import random
 
 class Type(Enum):
     NORMAL = 0
@@ -84,7 +85,11 @@ class Pokemon:
         # need to add code to ensure the user enters a number between 1 and 4
         user_input = int(input())
         self.use_move(user_input, opponent)
-    
+
+    def ai_fight(self, opponent):
+        print(f"Seto Kaiba is thinking.......")
+        self.use_move(random.randint(0,3), opponent)
+
     def get_damage(self, move, opponent):
         base_damage = ((2.0*self.level/5)+2)*((move.power*self.stats[Stats.Attack.value])/(50*opponent.stats[Stats.Defence.value])) + 2
         stab = self.get_stab_factor(move)
