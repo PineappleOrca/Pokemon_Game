@@ -84,24 +84,29 @@ def load_starter_pokemon_from_json(name):
 
     
 def charmander_init():
+    # deprecated function no longer used
     pokemon_db = load_starter_pokemon_from_json()
     return pokemon_db["Charmander"]
 
 def bulbasaur_init():
+    # deprecated function no longer used
     move_db = load_moves_from_json()
     return Pokemon("Bulbasaur", Type.GRASS, [8,15,25,50], [move_db["Tackle"], move_db["Leer"], move_db["Razor Leaf"], move_db["Absorb"]])
 
 def squirtle_init():
+    # deprecated function no longer used
     move_db = load_moves_from_json()
     return Pokemon("Squirtle", Type.WATER, [12,20,20,30], [move_db["Pound"], move_db["Tail Whip"], move_db["Water Gun"], move_db["Bubble"]])
 
 def pikachu_init():
+    # deprecated function no longer used
     move_db = load_moves_from_json()
     return Pokemon("Pikachu", Type.ELECTRIC, [15,8,50,60], [move_db["Scratch"], move_db["Tail Whip"], move_db["Thunderbolt"], move_db["Iron Tail"]])
 
 # manually hardcoding the init of the moveset, eventually for scale and adding support for other pokemon have to make a database of some sort from an API
 def pokemon_init(name):
+    '''
+    This is the main function to initialise a Pokemon Object
+    '''
     pokemon_db = load_starter_pokemon_from_json(name)
-    # From the Name, extract the moveset -> initialise the moveset from the moves_json -> export that, -> initialise the pokemon with the moves
-    # probably should be done in this function
     return pokemon_db[name]

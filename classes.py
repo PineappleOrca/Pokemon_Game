@@ -85,12 +85,19 @@ class Pokemon:
         user_input = int(input())
         self.use_move(user_input, opponent)
     
+    def get_damage(self, move, opponent):
+        base_damage = ((2.0*self.level/5)+2)*((move.power*self.stats[Stats.Attack.value])/(50*opponent.stats[Stats.Defence.value])) + 2
+        damage = int(base_damage)
+        return damage
+    
     def use_move(self, index, opponent):
         move = self.moveset[index]
         print(f"{self.name} used {self.moveset[index].name}!")
-        damage = move.power  
+        # Base Damage = (((2L)/5)+2)*(P*A)/(50*D)) + 2 
+        damage = self.get_damage(move, opponent) 
         opponent.stats[Stats.Health.value] -= damage
         print(f"It dealt {damage} damage to {opponent.name}!")
+        print(f"{opponent.name} has {opponent.stats[Stats.Health.value]} HP left!")
 
     def __str__(self) -> str:
         return "Your Pokemon is: " + self.name + " and it is a " + self.type.name +" type!" 
