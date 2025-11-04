@@ -80,11 +80,20 @@ class Pokemon:
         return self.moveset
 
     def fight(self, opponent):
-        print(f"What move will {self.name} choose?")
-        display_moveset(self)
+       #print(f"What move will {self.name} choose?")
+        #display_moveset(self)
         # need to add code to ensure the user enters a number between 1 and 4
-        user_input = int(input())
-        self.use_move(user_input, opponent)
+        display_moveset(self)
+        user_input = input(f"What move will {self.name} choose?  ")
+        if not user_input:
+            print(f"Error: You must pick a move (1-4) for {self.name} to use!")        
+        try:
+            value = int(user_input)
+        except ValueError:
+            print("Error: Please enter a number between 1 and 4.")
+        if value < 1 or value > 4:
+            print("Error: Please pick a number between 1 and 4")
+        self.use_move(int(user_input)-1, opponent)
 
     def ai_fight(self, opponent):
         print(f"Seto Kaiba is thinking.......")
