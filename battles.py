@@ -1,4 +1,4 @@
-from classes import Stats, Type
+from classes import Stats
 
 def pokemon_battle(pokemon1, pokemon2):
     # who go first
