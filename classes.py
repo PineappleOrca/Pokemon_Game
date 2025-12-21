@@ -129,7 +129,7 @@ class Pokemon:
                 [1,    0.5,   0.5,   2,   1,        0.5],  # GRASS
                 [1,    2,     0.5,   0.5, 1,        1],    # WATER
                 [1,    0.5,   2,     0.5, 1,        2],    # FIRE
-                [1,    0.5,   2,     1,   0.5,      1],    # ELECTRIC
+                [1,    0.5,   1,     1,   0.5,      1],    # ELECTRIC
                 [1,    1,     1,     0.5, 1,        0.5]   # STEEL
             ]
         return type_matrix[opponent.type.value][move.type.value]
