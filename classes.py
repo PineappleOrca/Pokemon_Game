@@ -3,6 +3,7 @@ from enum import Enum
 from menus import display_move_used, display_moveset
 import json
 import random
+from dataclasses import dataclass
 
 class Type(Enum):
     NORMAL = 0
@@ -11,14 +12,14 @@ class Type(Enum):
     FIRE = 3
     ELECTRIC = 4
     STEEL = 5
-    
+
+@dataclass
 class Moves:
-    def __init__(self, name="", power=0, pp=0, type=Type.NORMAL, accuracy=0):
-        self.name = name
-        self.power = power
-        self.pp = pp
-        self.type = type
-        self.accuracy = accuracy
+    name: str = ""
+    power: int = 0
+    pp: int = 0
+    type: Type = Type.NORMAL
+    accuracy: int = 0
 
 class Stats(Enum):
     Attack = 0
