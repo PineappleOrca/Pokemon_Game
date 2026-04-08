@@ -3,7 +3,7 @@ from enum import Enum
 from menus import display_move_used, display_moveset
 import json
 import random
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 class Type(Enum):
     NORMAL = 0
@@ -34,55 +34,17 @@ class Status(Enum):
     Normal = 0
     Burned = 1
 
+@dataclass
 class Pokemon:
-    # init is used to set values for each square
-    def __init__(self,name="", type=Type.NORMAL, stats=[], moveset=[], level=5, doa_status=True, status=Status.Normal):
-        # Initialising the variables
-        self.name = name
-        self.type = type
-        self.stats = stats 
-        self.moveset = moveset
-        self.level = level
-        self.doa_status = doa_status    # status of pokemon fainted or alive
-        self.status = status            # pokemon status normal/paralyzed/frozen/confused etc
-
-    # This is the getter
-    # self is used to refer to an object that we dont possess a name for
-    def get_name(self):
-        print("Retrieving the name")
-        return self.name
-    # we put a __ before this private field
-
-    # This is a setter
-    def set_name(self, value):
-        self.name = value
-
-    # This is the getter
-    def get_type(self):
-        print("Retrieving the Type")
-        return self.type
-
-    # This is the setter
-    def set_type(self, value):
-        self.type = value 
-
-    # Moveset
-    def set_stats(self, value):
-        self.stats = value
-    
-    def get_stats(self):
-        return self.stats
-    
-    # Moveset
-    def set_moveset(self, value):
-        self.moveset = value
-    
-    def get_moveset(self):
-        return self.moveset
+    name: str = ""
+    type: Type = Type.NORMAL
+    stats: list[int] = field(default_factory=list)
+    moveset: list[str] = field(default_factory=list)
+    level: int = 5
+    doa_status: bool = True
+    status: Status = Status.Normal
 
     def fight(self, opponent):
-       #print(f"What move will {self.name} choose?")
-        #display_moveset(self)
         # need to add code to ensure the user enters a number between 1 and 4
         display_moveset(self)
         user_input = input(f"What move will {self.name} choose?  ")
